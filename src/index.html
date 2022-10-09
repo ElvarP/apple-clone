@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Apple.com Clone</title>
+		<link rel="stylesheet" href="css/main.css" />
+		<script type="module" defer src="js/navigation.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+	</head>
+	<body class="font-roboto">
+		<nav class="navigation-bar bg-zinc-800/95 backdrop-blur fixed top-0 left-0 right-0 p-3 h-12 transition-all ease-in-out duration-500">
+			<div class="max-w-6xl mx-auto">
+				<header class="flex justify-between lg:hidden">
+					<label for="toggleMobileNavigation" class="toggle-mobile-navigation cursor-pointer lg:hidden flex flex-col w-6 h-6 justify-between overflow-hidden">
+						<input type="checkbox" id="toggleMobileNavigation" class="peer appearance-none" />
+						<div class="bg-zinc-200 h-[2px] w-6 transition-all origin-left peer-checked:rotate-[42deg]"></div>
+						<div class="bg-zinc-200 h-[2px] w-6 transition-all peer-checked:bg-opacity-0"></div>
+						<div class="bg-zinc-200 h-[2px] w-6 transition-all origin-left peer-checked:-rotate-[42deg]"></div>
+					</label>
+					<svg class="w-6 h-6 fill-zinc-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.773 22.773" style="enable-background: new 0 0 22.773 22.773" xml:space="preserve">
+						<path
+							d="M15.769 0h.162c.13 1.606-.483 2.806-1.228 3.675-.731.863-1.732 1.7-3.351 1.573-.108-1.583.506-2.694 1.25-3.561C13.292.879 14.557.16 15.769 0zM20.67 16.716v.045c-.455 1.378-1.104 2.559-1.896 3.655-.723.995-1.609 2.334-3.191 2.334-1.367 0-2.275-.879-3.676-.903-1.482-.024-2.297.735-3.652.926h-.462c-.995-.144-1.798-.932-2.383-1.642-1.725-2.098-3.058-4.808-3.306-8.276v-1.019c.105-2.482 1.311-4.5 2.914-5.478.846-.52 2.009-.963 3.304-.765.555.086 1.122.276 1.619.464.471.181 1.06.502 1.618.485.378-.011.754-.208 1.135-.347 1.116-.403 2.21-.865 3.652-.648 1.733.262 2.963 1.032 3.723 2.22-1.466.933-2.625 2.339-2.427 4.74.176 2.181 1.444 3.457 3.028 4.209z" />
+					</svg>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1"
+						stroke="currentColor"
+						class="w-6 h-6 stroke-zinc-300 mobile-header-shopping-bag transition-all">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+					</svg>
+				</header>
+				<nav class="mobile-navigation fixed lg:fixed lg:top-0 top-12 left-0 right-0 max-h-0 lg:max-h-12 transition-all ease-in-out duration-500 overflow-auto lg:overflow-visible">
+					<div class="max-w-6xl mx-auto">
+						<div
+							class="items-center px-10 py-4 mobile-search-bar border-b border-zinc-500 lg:hidden sticky top-0 left-0 right-0 max-h-0 overflow-hidden transition-all ease-in-out duration-500">
+							<input type="text" placeholder="Search" class="peer bg-zinc-800 border border-zinc-700 text-zinc-200 p-2 rounded-lg w-full" />
+						</div>
+						<ul class="text-zinc-300 font-light text-base lg:text-sm flex flex-col lg:items-center lg:flex-row lg:justify-between px-10 pb-24">
+							<li class="hidden lg:block">
+								<a href="">
+									<svg
+										class="w-6 h-6 fill-zinc-200 hover:fill-white"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 22.773 22.773"
+										style="enable-background: new 0 0 22.773 22.773"
+										xml:space="preserve">
+										<path
+											d="M15.769 0h.162c.13 1.606-.483 2.806-1.228 3.675-.731.863-1.732 1.7-3.351 1.573-.108-1.583.506-2.694 1.25-3.561C13.292.879 14.557.16 15.769 0zM20.67 16.716v.045c-.455 1.378-1.104 2.559-1.896 3.655-.723.995-1.609 2.334-3.191 2.334-1.367 0-2.275-.879-3.676-.903-1.482-.024-2.297.735-3.652.926h-.462c-.995-.144-1.798-.932-2.383-1.642-1.725-2.098-3.058-4.808-3.306-8.276v-1.019c.105-2.482 1.311-4.5 2.914-5.478.846-.52 2.009-.963 3.304-.765.555.086 1.122.276 1.619.464.471.181 1.06.502 1.618.485.378-.011.754-.208 1.135-.347 1.116-.403 2.21-.865 3.652-.648 1.733.262 2.963 1.032 3.723 2.22-1.466.933-2.625 2.339-2.427 4.74.176 2.181 1.444 3.457 3.028 4.209z" />
+									</svg>
+								</a>
+							</li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">Store</a></li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">Mac</a></li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">Ipad</a></li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">Iphone</a></li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">Watch</a></li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">AirPods</a></li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">TV & Home</a></li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">Only on Apple</a></li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">Accessories</a></li>
+							<li class="border-b border-zinc-500 lg:border-none"><a class="inline-block hover:text-white py-3" href="">Support</a></li>
+							<li class="hidden lg:block">
+								<a href="">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:stroke-white">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+									</svg>
+								</a>
+							</li>
+							<li class="hidden lg:block">
+								<a href="">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:stroke-white">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</nav>
+
+		<main class="bg-cover bg-[center_top_6rem] h-[624px] lg:h-[720px] bg-[url('/img/iphone-7.jpg')] mt-12">
+			<div class="flex flex-col items-center justify-center pt-12">
+				<h1 class="text-4xl lg:text-5xl font-medium text-zinc-900">iPhone 14</h1>
+				<p class="text-lg lg:text-xl text-zinc-800">Big and bigger.</p>
+				<div class="actions text-lg lg:text-xl text-blue-600 flex gap-8 mt-1">
+					<a class="hover:underline" href="">Learn more ></a>
+					<a href="">Buy ></a>
+				</div>
+			</div>
+		</main>
+		<section class="mt-2 bg-cover bg-[center_top_6rem] lg:bg-top h-[624px] lg:h-[720px] bg-[url('/img/iphone-9.jpg')]">
+			<div class="flex flex-col items-center justify-center pt-12">
+				<h1 class="text-4xl lg:text-5xl font-medium text-zinc-50">iPhone 14 Pro</h1>
+				<p class="text-lg lg:text-xl text-zinc-100">Pro. Beyond.</p>
+				<div class="actions text-lg lg:text-xl text-blue-600 flex gap-8 mt-1">
+					<a class="hover:underline" href="">Learn more ></a>
+					<a href="">Buy ></a>
+				</div>
+			</div>
+		</section>
+		<section class="mt-2 bg-cover bg-top h-[624px] lg:h-[720px] bg-[url('/img/apple-watch-3.jpg')]">
+			<div class="flex flex-col items-center justify-center pt-12">
+				<h1 class="text-4xl lg:text-5xl font-medium text-zinc-50 uppercase flex items-start">
+					<svg class="w-10 h-10 fill-zinc-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.773 22.773" style="enable-background: new 0 0 22.773 22.773" xml:space="preserve">
+						<path
+							d="M15.769 0h.162c.13 1.606-.483 2.806-1.228 3.675-.731.863-1.732 1.7-3.351 1.573-.108-1.583.506-2.694 1.25-3.561C13.292.879 14.557.16 15.769 0zM20.67 16.716v.045c-.455 1.378-1.104 2.559-1.896 3.655-.723.995-1.609 2.334-3.191 2.334-1.367 0-2.275-.879-3.676-.903-1.482-.024-2.297.735-3.652.926h-.462c-.995-.144-1.798-.932-2.383-1.642-1.725-2.098-3.058-4.808-3.306-8.276v-1.019c.105-2.482 1.311-4.5 2.914-5.478.846-.52 2.009-.963 3.304-.765.555.086 1.122.276 1.619.464.471.181 1.06.502 1.618.485.378-.011.754-.208 1.135-.347 1.116-.403 2.21-.865 3.652-.648 1.733.262 2.963 1.032 3.723 2.22-1.466.933-2.625 2.339-2.427 4.74.176 2.181 1.444 3.457 3.028 4.209z" />
+					</svg>
+					Watch
+				</h1>
+				<p class="text-lg uppercase text-orange-500 font-bold tracking-widest">Ultra</p>
+				<p class="text-lg lg:text-xl text-zinc-100">Adventure awaits.</p>
+				<div class="actions text-lg lg:text-xl text-blue-600 flex gap-8 mt-1">
+					<a class="hover:underline" href="">Learn more ></a>
+					<a href="">Buy ></a>
+				</div>
+			</div>
+		</section>
+		<section class="mt-2">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+				<div class="bg-cover bg-center h-[624px] bg-[url('/img/apple-watch-8.jpg')]">
+					<div class="flex flex-col items-center justify-center pt-12">
+						<h1 class="text-4xl lg:text-5xl font-medium text-zinc-50 uppercase flex items-start">
+							<svg class="w-10 h-10 fill-zinc-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.773 22.773" style="enable-background: new 0 0 22.773 22.773" xml:space="preserve">
+								<path
+									d="M15.769 0h.162c.13 1.606-.483 2.806-1.228 3.675-.731.863-1.732 1.7-3.351 1.573-.108-1.583.506-2.694 1.25-3.561C13.292.879 14.557.16 15.769 0zM20.67 16.716v.045c-.455 1.378-1.104 2.559-1.896 3.655-.723.995-1.609 2.334-3.191 2.334-1.367 0-2.275-.879-3.676-.903-1.482-.024-2.297.735-3.652.926h-.462c-.995-.144-1.798-.932-2.383-1.642-1.725-2.098-3.058-4.808-3.306-8.276v-1.019c.105-2.482 1.311-4.5 2.914-5.478.846-.52 2.009-.963 3.304-.765.555.086 1.122.276 1.619.464.471.181 1.06.502 1.618.485.378-.011.754-.208 1.135-.347 1.116-.403 2.21-.865 3.652-.648 1.733.262 2.963 1.032 3.723 2.22-1.466.933-2.625 2.339-2.427 4.74.176 2.181 1.444 3.457 3.028 4.209z" />
+							</svg>
+							Watch
+						</h1>
+						<p class="text-base uppercase text-red-500 font-bold tracking-widest">Series</p>
+						<p class="text-lg lg:text-xl text-zinc-100">A healthy leap ahead.</p>
+						<div class="actions text-lg lg:text-xl text-blue-500 flex gap-8 mt-1">
+							<a class="hover:underline" href="">Learn more ></a>
+							<a href="">Buy ></a>
+						</div>
+					</div>
+				</div>
+				<div class="bg-cover bg-center h-[624px] bg-[url('/img/airpods-1.jpg')]">
+					<div class="flex flex-col items-center justify-center pt-12">
+						<h1 class="text-4xl lg:text-5xl font-medium text-zinc-50 uppercase flex items-start">AirPods Pro</h1>
+						<p class="text-lg lg:text-xl text-zinc-100">Rebuilt from the sound up.</p>
+						<div class="actions text-lg lg:text-xl text-blue-500 flex gap-8 mt-1">
+							<a class="hover:underline" href="">Learn more ></a>
+							<a href="">Buy ></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="mt-2">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+				<div class="bg-cover bg-center h-[624px] bg-[url('/img/apple-watch-5.jpg')]">
+					<div class="flex flex-col items-center justify-center pt-12">
+						<h1 class="text-3xl lg:text-4xl font-medium text-zinc-900 uppercase flex items-start">
+							<svg class="w-8 h-8 fill-zinc-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.773 22.773" style="enable-background: new 0 0 22.773 22.773" xml:space="preserve">
+								<path
+									d="M15.769 0h.162c.13 1.606-.483 2.806-1.228 3.675-.731.863-1.732 1.7-3.351 1.573-.108-1.583.506-2.694 1.25-3.561C13.292.879 14.557.16 15.769 0zM20.67 16.716v.045c-.455 1.378-1.104 2.559-1.896 3.655-.723.995-1.609 2.334-3.191 2.334-1.367 0-2.275-.879-3.676-.903-1.482-.024-2.297.735-3.652.926h-.462c-.995-.144-1.798-.932-2.383-1.642-1.725-2.098-3.058-4.808-3.306-8.276v-1.019c.105-2.482 1.311-4.5 2.914-5.478.846-.52 2.009-.963 3.304-.765.555.086 1.122.276 1.619.464.471.181 1.06.502 1.618.485.378-.011.754-.208 1.135-.347 1.116-.403 2.21-.865 3.652-.648 1.733.262 2.963 1.032 3.723 2.22-1.466.933-2.625 2.339-2.427 4.74.176 2.181 1.444 3.457 3.028 4.209z" />
+							</svg>
+							Watch
+						</h1>
+						<p class="text-base uppercase text-red-500 font-bold tracking-widest">SE</p>
+						<p class="text-base lg:text-lg text-zinc-800">A great deal to love.</p>
+						<div class="actions text-lg lg:text-xl text-blue-500 flex gap-8 mt-1">
+							<a class="hover:underline" href="">Learn more ></a>
+							<a href="">Buy ></a>
+						</div>
+					</div>
+				</div>
+				<div class="bg-cover bg-center h-[624px] bg-[url('/img/apple-fitness-4.jpg')]">
+					<div class="flex flex-col items-center justify-center pt-12">
+						<h1 class="text-3xl lg:text-4xl font-medium text-zinc-900 uppercase flex items-start">
+							<svg class="w-8 h-8 fill-zinc-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.773 22.773" style="enable-background: new 0 0 22.773 22.773" xml:space="preserve">
+								<path
+									d="M15.769 0h.162c.13 1.606-.483 2.806-1.228 3.675-.731.863-1.732 1.7-3.351 1.573-.108-1.583.506-2.694 1.25-3.561C13.292.879 14.557.16 15.769 0zM20.67 16.716v.045c-.455 1.378-1.104 2.559-1.896 3.655-.723.995-1.609 2.334-3.191 2.334-1.367 0-2.275-.879-3.676-.903-1.482-.024-2.297.735-3.652.926h-.462c-.995-.144-1.798-.932-2.383-1.642-1.725-2.098-3.058-4.808-3.306-8.276v-1.019c.105-2.482 1.311-4.5 2.914-5.478.846-.52 2.009-.963 3.304-.765.555.086 1.122.276 1.619.464.471.181 1.06.502 1.618.485.378-.011.754-.208 1.135-.347 1.116-.403 2.21-.865 3.652-.648 1.733.262 2.963 1.032 3.723 2.22-1.466.933-2.625 2.339-2.427 4.74.176 2.181 1.444 3.457 3.028 4.209z" />
+							</svg>
+							Fitness+
+						</h1>
+						<p class="text-base lg:text-lg text-zinc-800">Fitness for everyone.</p>
+						<p class="text-base lg:text-lg text-zinc-800">Now all you need is iPhone.</p>
+
+						<div class="actions text-lg lg:text-xl text-blue-500 flex gap-8 mt-1">
+							<a class="hover:underline" href="">Learn more ></a>
+							<a href="">Notify me ></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="mt-2">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+				<div class="bg-cover bg-[center_top_3rem] bg-no-repeat h-[624px] bg-[url('/img/education-3.jpg')]">
+					<div class="flex flex-col items-center justify-center pt-12">
+						<h1 class="text-2xl lg:text-3xl font-medium text-zinc-900 uppercase flex text-center">Education moves everyone forward</h1>
+						<p class="text-base lg:text-lg text-zinc-800 text-center">Our partnership foster access to learning in over 100 countries.</p>
+						<div class="actions text-lg lg:text-xl text-blue-500 flex gap-8 mt-1">
+							<a class="hover:underline" href="">Learn more ></a>
+						</div>
+					</div>
+				</div>
+				<div class="bg-cover bg-center h-[624px] bg-[url('/img/apple-card-1.jpg')]">
+					<div class="flex flex-col items-center justify-center pt-12">
+						<h1 class="text-3xl lg:text-4xl font-medium text-zinc-900 uppercase flex items-start">
+							<svg class="w-8 h-8 fill-zinc-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.773 22.773" style="enable-background: new 0 0 22.773 22.773" xml:space="preserve">
+								<path
+									d="M15.769 0h.162c.13 1.606-.483 2.806-1.228 3.675-.731.863-1.732 1.7-3.351 1.573-.108-1.583.506-2.694 1.25-3.561C13.292.879 14.557.16 15.769 0zM20.67 16.716v.045c-.455 1.378-1.104 2.559-1.896 3.655-.723.995-1.609 2.334-3.191 2.334-1.367 0-2.275-.879-3.676-.903-1.482-.024-2.297.735-3.652.926h-.462c-.995-.144-1.798-.932-2.383-1.642-1.725-2.098-3.058-4.808-3.306-8.276v-1.019c.105-2.482 1.311-4.5 2.914-5.478.846-.52 2.009-.963 3.304-.765.555.086 1.122.276 1.619.464.471.181 1.06.502 1.618.485.378-.011.754-.208 1.135-.347 1.116-.403 2.21-.865 3.652-.648 1.733.262 2.963 1.032 3.723 2.22-1.466.933-2.625 2.339-2.427 4.74.176 2.181 1.444 3.457 3.028 4.209z" />
+							</svg>
+							Card
+						</h1>
+						<p class="text-base lg:text-lg text-zinc-800">Get up to 3% Daily Cash back with every purchase</p>
+						<p class="text-base lg:text-lg text-zinc-800">Now all you need is iPhone.</p>
+
+						<div class="actions text-lg lg:text-xl text-blue-500 flex gap-8 mt-1">
+							<a class="hover:underline" href="">Learn more ></a>
+							<a href="">Apply now ></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="bg-zinc-100 p-8 pb-0">
+			<div class="max-w-6xl mx-auto">
+				<div class="columns-1 lg:columns-5 divide-y divide-zinc-300 lg:space-y-6 lg:divide-none">
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title py-2 lg:py-0 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>Shop and learn</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Store</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Mac</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">iPad</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">iPhone</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Watch</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">AirPods</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">TV & Home</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">AirTag</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Accessories</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Gift Cards</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title py-2 lg:py-0 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>Services</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Music</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple TV+</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Fitness+</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple News+</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Arcade </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">iCloud </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple One </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Card </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Books </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Podcasts</a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">App Store </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class=""></div>
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title py-2 lg:py-0 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>Account</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Manage Your Apple ID </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Store Account </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">iCloud.com </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class=""></div>
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title py-2 lg:py-0 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>Apple Store</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Find a Store </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Genius Bar </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Today at Apple </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Camp </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Store App </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Refurbished and Clearance </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Financing </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Trade In </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Order Status </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Shopping Help </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class=""></div>
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title py-2 lg:py-0 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>For Business</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple and Business </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Shop for Business</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class=""></div>
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title lg:py-0 py-2 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>For Education</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple and Education </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Shop for K-12 </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Shop for College </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class=""></div>
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title lg:py-0 py-2 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>For Healthcare</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple in Healthcare </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Health on Apple Watch </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Health Records on iPhone </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class=""></div>
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title lg:py-0 py-2 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>For Government</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Shop for Government </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Shop for Veterans and Military </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class=""></div>
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title lg:py-0 py-2 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>Apply Values</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Accessibility </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Education </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Environment </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Inclusion and Diversity </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Privacy </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Racial Equity and Justice </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Supplier Responsibility </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class=""></div>
+					<div class="flex flex-col accordion break-inside-avoid">
+						<div class="accordion-title lg:py-0 py-2 cursor-pointer lg:cursor-default font-bold flex justify-between">
+							<h1>About Apple</h1>
+							<span class="accordion-state text-xl lg:hidden transition-all">+</span>
+						</div>
+						<div class="accordion-content max-h-0 lg:max-h-full lg:text-sm overflow-hidden transition-all">
+							<ul class="pb-4 pl-4 lg:p-0">
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Newsroom </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Apple Leadership </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Career Opportunities </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Investors </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Ethics & Compliance </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Events </a>
+								</li>
+								<li>
+									<a class="py-1 inline-block hover:underline" href="">Contact Apple </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-col border-t lg:flex-row gap-2 justify-between pb-3 pt-3 mt-12 text-sm text-zinc-600">
+					<div class="copyright">
+						<p>Cody by <a href="">elvarp.is</a></p>
+					</div>
+					<div class="more-link flex divide-x-2">
+						<a class="px-3 first:pl-0 last:pr-0" href="">Privacy Policy</a>
+						<a class="px-3 first:pl-0 last:pr-0" href="">Terms Of Use</a>
+						<a class="px-3 first:pl-0 last:pr-0" href="">Sales and Refunds</a>
+						<a class="px-3 first:pl-0 last:pr-0" href="">Legal</a>
+						<a class="px-3 first:pl-0 last:pr-0" href="">Etc</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
